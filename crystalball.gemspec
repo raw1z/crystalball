@@ -30,12 +30,13 @@ Gem::Specification.new do |spec|
   spec.executables   = [File.basename('bin/crystalball')]
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'git'
+  spec.add_dependency 'git', '1.7.0'
 
   spec.required_ruby_version = '> 2.3.0'
 
   spec.add_development_dependency 'actionview'
   spec.add_development_dependency 'activerecord'
+  spec.add_development_dependency 'debug'
   spec.add_development_dependency 'factory_bot'
   spec.add_development_dependency 'i18n'
   spec.add_development_dependency 'parser'
@@ -46,6 +47,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', ">= 0.56"
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'sqlite3', "~> 1.3.13"
+  spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'yard'
 end
