@@ -6,6 +6,7 @@ module Crystalball
     extend Forwardable
 
     attr_reader :configuration
+
     delegate %i[map_storage strategies dump_threshold map_class] => :configuration
 
     class << self

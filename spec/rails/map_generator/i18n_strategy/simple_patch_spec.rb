@@ -71,8 +71,15 @@ describe Crystalball::Rails::MapGenerator::I18nStrategy::SimplePatch do
     before { allow(Thread.current).to receive(:[]).with(:cb_locale_file_name) { filename } }
 
     it do
-      expect(instance).to receive(:cb_original_store_translations).with(locale, user: {name: {cb_filename: filename, cb_value: 'John'}})
+      called = false
+      allow(instance).to receive(:cb_original_store_translations) do |loc, dat|
+        called = true
+        expect(loc).to eq(locale)
+        expect(dat).to eq(user: {name: {cb_filename: filename, cb_value: 'John'}})
+      end
+
       subject
+      expect(called).to be true
     end
 
     context 'when data contains filenames' do

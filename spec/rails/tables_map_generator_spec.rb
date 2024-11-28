@@ -74,7 +74,7 @@ describe Crystalball::Rails::TablesMapGenerator do
       end
 
       it 'dump new map metadata to storage' do
-        expect(storage).to receive(:dump).with(type: map_class.to_s, commit: 'abc', version: 1.0)
+        expect(storage).to receive(:dump).with({type: map_class.to_s, commit: 'abc', version: 1.0})
         subject.start!
       end
     end
@@ -101,7 +101,7 @@ describe Crystalball::Rails::TablesMapGenerator do
         end
 
         specify do
-          expect(storage).to receive(:dump).with('Dummy' => ['file1'])
+          expect(storage).to receive(:dump).with({'Dummy' => ['file1']})
           subject.finalize!
         end
       end
