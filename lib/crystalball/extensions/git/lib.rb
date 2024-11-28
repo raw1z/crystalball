@@ -12,7 +12,7 @@ module Git
 
       arg_opts = opts.map { |k, v| "--#{k}" if v }.compact + args
 
-      command('merge-base', arg_opts)
+      command('merge-base', *arg_opts)
     end
   end
 end
